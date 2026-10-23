@@ -31,7 +31,7 @@ public class SpamEmailClassifierController {
         return "Ok" + Instant.now();
     }
 
-    @PostMapping("/text")
+    @PostMapping("/email")
     public ResponseEntity<ClassificationResult> classifyEmail(@RequestBody Map<String, String> request) {
         String content = request.get("content");
         if (content == null) {
@@ -42,7 +42,7 @@ public class SpamEmailClassifierController {
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping("/textNlp")
+    @PostMapping("/email/deep-learning")
     public ResponseEntity<DeepLearningResult> classifyEmailLearning(@RequestBody Map<String, String> request) {
         String content = request.get("content");
         System.out.println(content);
